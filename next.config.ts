@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "i.pravatar.cc" }],
+  },
   turbopack: {
     rules: {
       "*.css": {
