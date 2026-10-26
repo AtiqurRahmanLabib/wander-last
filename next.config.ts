@@ -6,7 +6,13 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   reactCompiler: true,
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "i.pravatar.cc" }],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
   },
   turbopack: {
     rules: {

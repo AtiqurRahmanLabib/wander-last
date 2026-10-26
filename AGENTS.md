@@ -16,8 +16,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Repo shape
 
-- Single Next.js 16.4.3 App Router app (not a monorepo). Real code lives in `src/`; `src/app/` is the router. Only route `/` exists — the layout composes server components from `src/components/` (`navbar`, `banner`, `features`, `testimonials` — testimonials is `"use client"` for its slider state — `cta`, `footer`; `newsletter-form` is its own `"use client"` piece). Navbar links (`/destinations`, `/my-bookings`, `/admin`, `/profile`, `/login`, `/signup`) are placeholders; those routes don't exist yet.
-- `public/assets/` holds the design's real crops — Banner, CTA, person1/person2 testimonial portraits, ShieldCheck/MapTrifold/Headset feature icons, and the Wanderlast wordmarks (`Wanderlast.png` teal for light bg, `Wanderlast-1.png` white for dark bg). Check there before reaching for remote image URLs; only testimonials' extra slides still use pravatar placeholders.
+- Single Next.js 16.4.3 App Router app (not a monorepo). Real code lives in `src/`; `src/app/` is the router. Existing routes: `/` (composes server components from `src/components/` — `navbar`, `banner`, `features`, `testimonials` (its `"use client"` slider), `cta`, `footer`; `newsletter-form` is its own `"use client"` piece), `/add-destination` (renders `destination-form`, `"use client"`; submit is a no-op TODO until an API exists) and `/destinations` (static server-component card grid fed by `public/assets/destinations/image1–6.png`; BOOK NOW links point at `#` until a booking route/API exists). Navbar links (`/my-bookings`, `/admin`, `/profile`, `/login`, `/signup`) are still placeholders; those routes don't exist yet.
+- `public/assets/` holds the design's real crops — Banner, CTA, person1/person2 testimonial portraits, ShieldCheck/MapTrifold/Headset feature icons, the Wanderlast wordmarks (`Wanderlast.png` teal for light bg, `Wanderlast-1.png` white for dark bg) and `destinations/image1–6.png` card images. Check there before reaching for remote image URLs; only testimonials' extra slides still use pravatar placeholders.
 - Path alias `@/*` → `./src/*` (tsconfig + `components.json`).
 - No test runner, no CI, no Prettier/editorconfig. ESLint is the only linter; generated shadcn files are semicolon-free, so formatting is intentionally mixed — don't mass-reformat.
 
@@ -39,7 +39,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## UI stack (shadcn "base-nova")
 
 - Primitives are `@base-ui/react`, **not Radix** — don't assume `@radix-ui/react-*` imports. Icons are lucide.
-- `src/components/ui/` (63 files), plus `src/lib/`, `src/hooks/` and `components.json`, are shadcn-generated and currently **untracked in git — commit them**. So are the hand-written app components `src/components/*.tsx` and `public/assets/`. Add new primitives with `npx shadcn add <component>` instead of writing them from scratch.
+- `src/components/ui/` (63 files), plus `src/lib/`, `src/hooks/` and `components.json`, are shadcn-generated and currently **untracked in git — commit them**. So are the hand-written app components `src/components/*.tsx`, `public/assets/`, the newer app files (`src/app/add-destination/`, `src/app/destinations/`, `src/components/destination-form.tsx`) and the root `types.ts` (`Destination` interface — the shared data shape for future API/booking work). Add new primitives with `npx shadcn add <component>` instead of writing them from scratch.
 - `cn` comes from the `cn` npm package (`src/lib/utils.ts` just re-exports it), not clsx + tailwind-merge.
 - `src/lib/highlighter.tsx` is a shared shiki core highlighter with a fixed language map; supporting a new language means adding an entry there.
 

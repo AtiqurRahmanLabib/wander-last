@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
   { href: "/my-bookings", label: "My Bookings" },
-  { href: "/admin", label: "Admin" },
+  { href: "/add-destination", label: "Add Destination" },
 ];
 
 const authLinks = [
