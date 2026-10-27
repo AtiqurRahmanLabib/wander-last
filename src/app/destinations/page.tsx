@@ -19,7 +19,7 @@ async function DestinationsList() {
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {destinations.map((destination) => (
             <article key={destination._id} className="group">
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 <Image
                   src={destination.imageUrl}
                   alt={destination.destinationName}

@@ -7,11 +7,11 @@ import {
   Calendar,
   Check,
   MapPin,
-  Pencil,
   Star,
-  Trash2,
 } from "lucide-react";
 import type { Destination } from "../../../../types";
+import EditDestinationDialog from "@/components/destination/EditDestinationDialog";
+import DeleteDestination from "@/components/destination/DeleteDestination";
 
 const HIGHLIGHTS = [
   "Luxury beachfront accommodation",
@@ -54,24 +54,14 @@ async function DestinationDetails({
           </Link>
 
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="inline-flex items-center gap-1.5 border border-zinc-300 px-4 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-50"
-            >
-              <Pencil className="size-4" aria-hidden />
-              Edit
-            </button>
-            <button
-              type="button"
-              className="inline-flex items-center gap-1.5 border border-red-300 px-4 py-2 text-sm text-red-500 transition-colors hover:bg-red-50"
-            >
-              <Trash2 className="size-4" aria-hidden />
-              Cancel
-            </button>
+            <EditDestinationDialog
+              destination={destination}
+            ></EditDestinationDialog>
+            <DeleteDestination destination={destination}></DeleteDestination>
           </div>
         </div>
 
-        <div className="relative mt-6 aspect-[16/10] overflow-hidden">
+        <div className="relative mt-6 aspect-16/10 overflow-hidden">
           <Image
             src={destination.imageUrl}
             alt={destination.destinationName}
@@ -96,7 +86,10 @@ async function DestinationDetails({
 
             <div className="mt-3 flex flex-wrap items-center gap-5">
               <span className="flex items-center gap-1.5 text-sm text-zinc-700">
-                <Star className="size-4 fill-green-600 text-green-600" aria-hidden />
+                <Star
+                  className="size-4 fill-green-600 text-green-600"
+                  aria-hidden
+                />
                 <strong className="font-semibold">4.9</strong>
                 <span className="text-zinc-500">(234 reviews)</span>
               </span>
@@ -111,7 +104,9 @@ async function DestinationDetails({
               {destination.description}
             </p>
 
-            <h2 className="mt-8 text-xl font-medium text-zinc-900">Highlights</h2>
+            <h2 className="mt-8 text-xl font-medium text-zinc-900">
+              Highlights
+            </h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
               {destination.description}
             </p>

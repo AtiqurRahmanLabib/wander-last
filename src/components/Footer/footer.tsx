@@ -1,5 +1,5 @@
 import Image from "next/image"
-import NewsletterForm from "@/components/newsletter-form"
+import NewsletterForm from "@/components/Footer/newsletter-form"
 import type { ReactNode } from "react"
 
 const linkColumns = [
@@ -51,13 +51,13 @@ function ColumnLabel({ children }: { children: ReactNode }) {
 export default function Footer() {
   return (
     <footer className="bg-[#141414]">
-      <div className="mx-auto max-w-[1440px] px-4 pt-16 pb-10 sm:px-6">
+      <div className="mx-auto max-w-360 px-4 pt-16 pb-10 sm:px-6">
         <Image
           src="/assets/Wanderlast-1.png"
           alt="Wanderlast"
           width={320}
           height={47}
-          className="h-auto w-[280px] sm:w-[320px]"
+          className="h-auto w-70 sm:w-[320px]"
         />
         <p className="mt-4 text-sm text-zinc-400">
           Your gateway to extraordinary travel experiences around the world.

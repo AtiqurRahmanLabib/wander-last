@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/home/navbar";
+import Footer from "@/components/Footer/footer";
 
 const josefinSans = Josefin_Sans({
   subsets: ["latin"],
