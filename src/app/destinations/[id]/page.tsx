@@ -1,17 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  Check,
-  MapPin,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, Calendar, Check, MapPin, Star } from "lucide-react";
 import type { Destination } from "../../../../types";
 import EditDestinationDialog from "@/components/destination/EditDestinationDialog";
 import DeleteDestination from "@/components/destination/DeleteDestination";
+import BookingCard from "@/components/Booking/BookingCard";
 
 const HIGHLIGHTS = [
   "Luxury beachfront accommodation",
@@ -19,12 +13,6 @@ const HIGHLIGHTS = [
   "Traditional Balinese spa treatment",
   "Private beach dinner experience",
   "Sunrise trek to Mount Batur",
-];
-
-const PERKS = [
-  "Free cancellation up to 7 days",
-  "Travel insurance included",
-  "24/7 customer support",
 ];
 
 async function DestinationDetails({
@@ -127,37 +115,7 @@ async function DestinationDetails({
             </ul>
           </div>
 
-          <aside className="h-fit border border-zinc-200 bg-white p-6 lg:sticky lg:top-6">
-            <p className="text-sm text-zinc-500">Starting from</p>
-            <p className="mt-1 text-4xl font-bold text-sky-600">
-              ${destination.price}
-            </p>
-            <p className="mt-1 text-xs text-zinc-500">per person</p>
-
-            <div className="mt-6 bg-zinc-50 px-4 py-3 text-sm text-zinc-700">
-              {destination.departureDate}
-            </div>
-
-            <button
-              type="button"
-              className="mt-6 flex w-full items-center justify-center gap-2 bg-sky-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-700"
-            >
-              Book Now
-              <ArrowRight className="size-4" aria-hidden />
-            </button>
-
-            <ul className="mt-5 space-y-2.5">
-              {PERKS.map((perk) => (
-                <li
-                  key={perk}
-                  className="flex items-center gap-2.5 text-xs text-zinc-600"
-                >
-                  <Check className="size-3.5 text-green-600" aria-hidden />
-                  {perk}
-                </li>
-              ))}
-            </ul>
-          </aside>
+          <BookingCard destination={destination}></BookingCard>
         </div>
       </div>
     </div>
