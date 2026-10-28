@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import cta from '../../public/assets/CTA.png'
+import cta from '../../../public/assets/CTA.png'
 import Link from "next/link"
 
 export default function Cta() {

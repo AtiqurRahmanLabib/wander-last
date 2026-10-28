@@ -1,16 +1,17 @@
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const searchFields = [
   { name: "location", label: "Location", placeholder: "Address, City Or Zip" },
   { name: "dates", label: "Date/Duration", placeholder: "Anytime / 3 Days" },
   { name: "budget", label: "Budget", placeholder: "$0-$3000" },
   { name: "people", label: "People", placeholder: "5-10" },
-]
+];
 
 export default function Banner() {
   return (
-    <section className="relative isolate flex min-h-[620px] flex-1 flex-col overflow-hidden">
+    <section className="relative isolate flex min-h-155 flex-1 flex-col overflow-hidden">
       <Image
         src="/assets/Banner.png"
         alt=""
@@ -19,7 +20,7 @@ export default function Banner() {
         sizes="100vw"
         className="-z-10 object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-black/40 via-black/20 to-black/50" />
 
       {/* Headline + CTAs */}
       <div className="flex flex-1 flex-col items-center justify-center px-4 pt-16 pb-20 text-center">
@@ -33,7 +34,7 @@ export default function Banner() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
+          <Link
             href="/destinations"
             className="inline-flex items-center gap-3 rounded-md bg-sky-500 px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition-colors hover:bg-sky-600"
           >
@@ -41,13 +42,13 @@ export default function Banner() {
             <span className="rounded-sm bg-black/20 p-1">
               <ArrowRight className="size-4" aria-hidden />
             </span>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/destinations"
             className="rounded-md border border-white/30 bg-white/15 px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase backdrop-blur-sm transition-colors hover:bg-white/25"
           >
             View Destination
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -78,5 +79,5 @@ export default function Banner() {
         </button>
       </form>
     </section>
-  )
+  );
 }

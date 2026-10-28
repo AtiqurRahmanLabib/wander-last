@@ -8,7 +8,7 @@ export default function NewsletterForm() {
 
   return (
     <form
-      className="relative mt-4 max-w-[300px]"
+      className="relative mt-4 max-w-75"
       onSubmit={(event) => event.preventDefault()}
     >
       <label htmlFor="newsletter-email" className="sr-only">

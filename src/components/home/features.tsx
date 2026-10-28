@@ -27,7 +27,7 @@ export default function Features() {
         className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(60%_100%_at_50%_0%,rgba(255,246,220,0.55),transparent_70%)]"
       />
 
-      <div className="relative mx-auto max-w-[1120px] px-4 pt-16 pb-20 sm:px-6">
+      <div className="relative mx-auto max-w-280 px-4 pt-16 pb-20 sm:px-6">
         <header className="text-center">
           <h2 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-[44px]">
             Why Choose Wanderlust

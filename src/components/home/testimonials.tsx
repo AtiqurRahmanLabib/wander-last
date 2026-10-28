@@ -44,7 +44,7 @@ export default function Testimonials() {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-4 py-16 sm:px-6">
+      <div className="mx-auto max-w-280 px-4 py-16 sm:px-6">
         <header className="flex items-center justify-between gap-6">
           <div>
             <h2 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-[44px]">
