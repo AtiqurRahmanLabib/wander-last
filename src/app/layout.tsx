@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/Footer/footer";
@@ -16,11 +17,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${josefinSans.className} h-full antialiased`}
-    >
+    <html lang="en" className={`${josefinSans.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <Toaster />
         {/* Navbar reads usePathname(); under cacheComponents a Client
             Component using runtime URL data must stream in via Suspense, or
             dynamic-segment routes fail to prerender (CLIENT_HOOK_DYNAMIC). */}
@@ -29,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Suspense>
         {children}
         <Footer></Footer>
-        </body>
+      </body>
     </html>
   );
 }
