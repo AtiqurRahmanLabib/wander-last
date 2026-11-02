@@ -1,5 +1,8 @@
 "use client"
 
+
+import { authClient } from "@/lib/auth-client"
+import { GetTokenFromClient } from "@/lib/GetTokenFromClient"
 import { CalendarPlus, ChevronDown, Trash2 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -54,15 +57,17 @@ export default function DestinationForm() {
     <form
       onSubmit={ async (event) => {
         event.preventDefault()
+       const token = await GetTokenFromClient()
         const res = await fetch(`http://localhost:8000/add-destination`, {
           method: 'POST',
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
           },
           body: JSON.stringify(form)
         })
-        const data = await res.json()
-        console.log("response from server:", data)
+        const result = await res.json()
+        console.log("response from server:", result)
         setForm(emptyForm)
       }}
     >

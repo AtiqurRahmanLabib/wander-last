@@ -7,6 +7,8 @@ import EditDestinationDialog from "@/components/destination/EditDestinationDialo
 import DeleteDestination from "@/components/destination/DeleteDestination";
 import BookingCard from "@/components/Booking/BookingCard";
 
+import { getTokenFromServer } from "@/lib/GetTokenFromServer";
+
 const HIGHLIGHTS = [
   "Luxury beachfront accommodation",
   "Visit Uluwatu Temple at sunset",
@@ -21,7 +23,15 @@ async function DestinationDetails({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const res = await fetch(`http://localhost:8000/destination/${id}`);
+
+
+  const token = await getTokenFromServer();
+  const res = await fetch(`http://localhost:8000/destination/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  console.log("JWT Token:", token); // Log the JWT token for debugging
 
   if (!res.ok) {
     throw new Error("Failed to fetch destination");

@@ -48,7 +48,7 @@ export default function BookingCard({ destination }: BookingCardProps) {
         body: JSON.stringify({
           userName: session.user.name,
           email: session.user.email,
-          // imageUrl: session.user.imageUrl,
+          imageUrl: destination.imageUrl,
           destinationId: destination._id,
           destinationName: destination.destinationName,
           price: destination.price,

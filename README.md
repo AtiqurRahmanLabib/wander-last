@@ -209,4 +209,4 @@ This project is developed for educational and learning purposes.
 
 ---
 
-**Built with ❤️ using Next.js, TypeScript, and MongoDB.**
+

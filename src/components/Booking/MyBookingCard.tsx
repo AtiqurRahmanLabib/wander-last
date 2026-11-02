@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Eye, MapPin, Trash2 } from "lucide-react";
 import type { Booking } from "../../../types";
 import BookingStatusBadge from "./BookingStatusBadge";
+import { redirect } from "next/navigation";
 
 const formatDate = (date: string) => {
   const parsed = new Date(date);
@@ -23,6 +25,15 @@ type BookingCardProps = {
 };
 
 const MyBookingCard = ({ booking }: BookingCardProps) => {
+  const handleDelete = async (_id: string) => {
+    const res = await fetch(`http://localhost:8000/my-booking/${_id}`, {
+      method: "DELETE",
+    });
+    const data = await res.json();
+    console.log("Deleted booking:", data);
+    redirect("/my-bookings");
+  };
+
   return (
     <article className="flex flex-col gap-5 border border-zinc-200 bg-white p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-5">
       <div className="relative aspect-16/10 w-full shrink-0 overflow-hidden bg-zinc-100 sm:aspect-auto sm:h-28 sm:w-44">
@@ -63,6 +74,7 @@ const MyBookingCard = ({ booking }: BookingCardProps) => {
 
       <div className="flex shrink-0 items-center gap-3">
         <button
+          onClick={() => handleDelete(booking._id)}
           type="button"
           className="inline-flex items-center gap-1.5 border border-red-300 px-4 py-2 text-sm text-red-500 transition-colors hover:bg-red-50"
         >
