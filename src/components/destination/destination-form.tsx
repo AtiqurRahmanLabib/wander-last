@@ -1,7 +1,5 @@
 "use client"
 
-
-import { authClient } from "@/lib/auth-client"
 import { GetTokenFromClient } from "@/lib/GetTokenFromClient"
 import { CalendarPlus, ChevronDown, Trash2 } from "lucide-react"
 import { useRouter } from "next/navigation"
@@ -58,7 +56,7 @@ export default function DestinationForm() {
       onSubmit={ async (event) => {
         event.preventDefault()
        const token = await GetTokenFromClient()
-        const res = await fetch(`http://localhost:8000/add-destination`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/add-destination`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",

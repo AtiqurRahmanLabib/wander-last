@@ -8,7 +8,7 @@ import FeaturedCarousel from "./featuredCarousel"
 const FEATURED_RATING = 4.5
 
 const FeaturedDestination = async () => {
-  const res = await fetch("http://localhost:8000/featured-destination")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured-destination`)
 
   if (!res.ok) {
     throw new Error("Failed to fetch featured destinations")

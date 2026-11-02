@@ -18,7 +18,7 @@ import { Destination } from "../../../types";
 const DeleteDestination = ({ destination }: { destination: Destination }) => {
   const { _id } = destination;
   const handleDelete = async (_id: string) => {
-    const res = await fetch(`http://localhost:8000/destination/${_id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/destination/${_id}`, {
       method: "DELETE",
     });
     res.json();

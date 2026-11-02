@@ -19,7 +19,7 @@ async function BookingsList() {
     );
   }
 
-  const res = await fetch(`http://localhost:8000/my-booking/${user.email}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-booking/${user.email}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch bookings");
